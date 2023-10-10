@@ -1,0 +1,12 @@
+**Thanks for checking out my project!**
+
+**Setup:**
+My project imports a forked version of an existing TikTok API library. I had to make some changes to it for my use case (processing 100 unique videos). My project, therefore, shares dependencies with that library. Check out [the GitHub repository](https://github.com/sethengland/TikTokPy.git) for details on setup.
+
+**Execution:**
+The `main.py` file fetches 100 videos using the hashtag/challenge search. It saves a variety of columns to a CSV file with the name `scraped_data_{timestamp}.csv`. See the included example outputs. I also included the Dockerfile I used to create a Docker container that runs the execution.
+
+**Further Thoughts:**
+The primary limitation of this project is the unsupported nature of scraping TikTok data. I first tried a different API library but quickly found that the TikTok private API had recently changed and completely broke this library. I next tried manually requesting TikTok's data from my code, but without documentation, I could not find the proper endpoints for getting detailed video information from searches or hashtags. I also started upon the path of using Selenium to automatically navigate to TikTok's website and perform searches from there, but they use heavy anti-bot measures like captchas and forced logouts. I ended up trying a different unofficial TikTok API library, from which, with some customizations, I could use for this use case. This library was also pretty limited. Due to that fact and time limitations, I really only support one way of finding new posts, which is by the `#fashion` hashtag. In the future, I could add support for using a search function or scanning comments to find other fashion-related posts. The implementation of these features would also rely heavily on either using an officially supported TikTok API or finding more detailed descriptions of their internal APIs that I could use. These more detailed analyses would be relatively simple from the server side, if slightly more resource-heavy. Scraping for these analyses something like once per hour could reap hugely valuable information with very low cost to run as you wouldn't need more than one machine for anything that I have described here.
+
+Thank you for reading, and I'd love to discuss this project further with you.
